@@ -1,0 +1,34 @@
+spring.application.name=USER-SERVICE
+server.port=9001
+
+
+#DB Config
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521
+spring.datasource.username=system
+spring.datasource.password=manager
+
+#JPA Config
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dailact=org.hibernate.dailact.OracleDailect
+
+#Eureka Config
+
+#eureka.client.fetch-registry=true
+#eureka.client.register-with-eureka=true
+#eureka.instance.prefer-ip-address=true
+#eureka.client.service-url.defaultZone=http://localhost:9000/eureka
+
+spring.config.import= configserver:http://localhost:9008
+spring.profiles.active=dev
+
+#Resilience4j configs
+management.health.circuitbreakers.enabled=true
+management.endpoints.web.exposure.include=health
+management.endpoint.health.show-details=always
+
+
+
+
+

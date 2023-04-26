@@ -1,0 +1,8 @@
+package com.gateway;
+
+public class Snippet {
+	public static void main(String[] args) {
+		application.yml
+	}
+}
+

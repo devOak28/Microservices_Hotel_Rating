@@ -1,0 +1,20 @@
+server.port=9004
+spring.application.name=API-GATEWAY
+
+eureka.client.fetch-registry=true
+eureka.client.register-with-eureka=true
+eureka.instance.prefer-ip-address=true
+eureka.client.service-url.defaultZone=http://localhost:9000/eureka
+
+#Gateway configs
+spring.cloud.gateway.routes[0].id=User-Service
+spring.cloud.gateway.routes[0].uri=lb://USER-SERVICE
+spring.cloud.gateway.routes[0].predicates[0]=Path=/v1/user-server/user/**
+
+spring.cloud.gateway.routes[1].id=HOTEL-SERVER
+spring.cloud.gateway.routes[1].uri=lb://HOTEL-SERVER
+spring.cloud.gateway.routes[1].predicates[0]=Path=/v1/hotel-server/hotel/**
+
+spring.cloud.gateway.routes[2].id=RATING-SERVER
+spring.cloud.gateway.routes[2].uri=lb://RATING-SERVER
+spring.cloud.gateway.routes[2].predicates[0]=Path=/v1/rating-server/rating/**

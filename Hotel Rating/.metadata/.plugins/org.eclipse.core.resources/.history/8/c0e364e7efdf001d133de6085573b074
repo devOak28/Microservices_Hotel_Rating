@@ -1,0 +1,10 @@
+package com.user.external_service;
+
+import com.user.entitys.Rating;
+
+
+public interface Rating_Service {
+
+	
+	Rating getRatingService(String rid);
+}
